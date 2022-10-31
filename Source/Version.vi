@@ -1,0 +1,46 @@
+;===============================================================================
+; Version information description file used to create Version.res resource file.
+; Build this file with DelphiDabbler Version Information Editor from
+; http://www.delphidabbler.com/. Compile the resulting .rc file using the
+; Borland BRCC32 resource compiler.
+;
+; $Rev: 86 $
+; $Date: 2013-10-28 16:49:09 +0000 (Mon, 28 Oct 2013) $
+;
+; This file is licensed under the MIT license.
+;
+; Copyright (c) 2013, Peter Johnson, http://delphidabbler.com and
+; http://codedabbler.co.uk
+;===============================================================================
+
+
+[Fixed File Info]
+File Version #=1, 1, 2, 6
+Product Version #=1, 1, 2, 0
+File OS=4
+File Type=1
+File Sub-Type=0
+File Flags Mask=63
+File Flags=0
+
+[Variable File Info]
+Language=2057
+Character Set=1252
+
+[String File Info]
+Comments=This open source software is licensed under the terms of the MIT license. See http://opensource.org/licenses/MIT.
+Company Name=DelphiDabbler (www.delphidabbler.com)
+File Description=BoobyTrap!
+File Version=v<#F1>.<#F2>.<#F3> build <#F4>
+Internal Name=<SHORTFNAME>
+Legal Copyright=Copyright © P D Johnson, 1999-<YEAR>
+Legal Trademark=
+Original File Name=BoobyTrap.exe
+Private Build=
+Product Name=DelphiDabbler BoobyTrap!
+Product Version=Release <#P1>.<#P2>.<#P3>
+Special Build=
+
+[Configuration Details]
+Identifier=
+NumRCComments=0

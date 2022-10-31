@@ -1,0 +1,311 @@
+================================================================================
+
+BoobyTrap! Build Instructions
+
+================================================================================
+
+
+Introduction
+--------------------------------------------------------------------------------
+
+BoobyTrap! is written in Object Pascal and is targeted at Delphi XE. The Delphi
+IDE can be used to modify the source and to perform test builds. Final builds
+should be built using the provided makefile, but you can get away with using the
+IDE if you don't change any resources.
+
+NOTE: These instructions only apply to building BoobyTrap! v1.1.2 and later.
+
+Macros / Environment Variables
+--------------------------------------------------------------------------------
+
+The BoobyTrap! makefile requires that some environment variables or macros are
+defined in order to build the source code. Make fails if they are not defined.
+There are also some optional environment variables or macros that can be used to
+vary the behaviour of the makefile.
+
+You can either set the required environment variables (maybe in a special batch
+file that is run before compiling the project), or you can pass the values as
+macros on the Make command line.
+
+Required Environment Variables
+------------------------------
+
+DELPHIROOT (or DELPHIXE)
+  DELPHIROOT must address the installation directory of the required Delphi
+  compiler: Delphi XE is preferred and compilation with earlier versions may
+  fail without source code changes. If Delphi XE is to be used the DELPHIXE
+  macro can be defined to address the Delphi XE installation directory. When
+  DELPHIXE is defined any existing value of DELPHIROOT is ignored and DELPHIXE
+  is used instead.
+
+DELPHIDABLIB (or DELPHIDABLIBDXE)
+  DELPHIDABLIB must address the directory where the required DelphiDabbler
+  components have been installed (see below). If the DELPHIDABLIBDXE macro is
+  defined to reference the DelphiDabbler component install path for Delphi XE it
+  will be used instead of DELPHIDABLIB.
+
+Optional Environment Variables
+------------------------------
+
+VIEDROOT
+  Install path of Version Information Editor (VIEd) (see below). If not set
+  VIEd must be on the system path.
+
+HHCROOT
+  Install path of the Microsoft HTML Help compiler (see below). If not set the
+  help compiler must be on the system path.
+
+INNOSETUP
+  Install path of Inno Setup (see below). This should  be the Unicode version of
+  the program. If not set the Unicode version of Inno Setup must be on the
+  system path.
+
+ZIPROOT
+  Install path of ZIP.exe (see below) used to create the release zip file. If
+  not present ZIP.exe must be on the system path.
+
+RELEASEFILENAME
+  Specifies the name, without path or extension, of the zip file used to contain
+  the BoobyTrap! program when released. If not set then a default name hard
+  wired into the makefile is used.
+
+
+Requirements
+--------------------------------------------------------------------------------
+
+You need the following tools to perform a full build and release of BoobyTrap!:
+
+Delphi Command Line compiler (DCC32)
+------------------------------------
+
+The preferred version is Delphi XE. If you have this compiler please use it.
+
+Alternatives:
+
+  + Delphi 2009 and Delphi 2010 may work, but hasn't been tested, but earlier,
+    non-Unicode versions probably won't work.
+  + Later compilers (XE2 onwards) will probably be fine.
+
+Don't forget to set the DELPHIROOT (or DELPHIXE) environment variables to
+reference the install path of the chosen compiler.
+
+BRCC32 resource compiler (BRCC32)
+---------------------------------
+
+BRCC32 is distributed with Delphi. It is needed to compile resource files. The
+Makefile expects to find BRCC32 in the same directory as DCC32.
+
+Borland MAKE
+------------
+
+This is the make tool that ships with Delphi. You can use any version that
+works. The makefile calls Make recursively: it uses the same command line that
+you used so there are no requirements as to the location of Make.
+
+DelphiDabbler Version Information Editor (VIEd)
+-----------------------------------------------
+
+This program is required to convert the .vi files that specify version
+information into an intermediate .rc file that is compiled by BRCC32. VIEd is
+expected to be on the system path unless the VIEDROOT environment variable is
+set to indicate VIEd's installation directory. Use v2.12 or later. You can get
+VIEd here: http://www.delphidabbler.com/software/vied
+
+Microsoft HTML Help Compiler
+----------------------------
+
+This program is used to compile the BoobyTrap! help file from source. The
+compiler is expected to be on the system path unless the HHCROOT environment
+variable is set to specify the compiler's install directory.
+
+Inno Setup
+----------
+
+The Unicode version of Inno Setup is required to compile the set up program. It
+is expected to be on the system path unless the INNOSETUP or INNOSETUP_U
+environment variables are set to the Inno Setup install path. Use any Unicode
+version. You can get Inno Setup from http://www.jrsoftware.org/isinfo.php
+
+Zip.exe
+-------
+
+This program is required to create the release exe file. Again it is assumed to
+be on the path unless the ZIPROOT environment variable is set to its install
+directory. You can get a Windows version at:
+http://stahlforce.com/dev/index.php?tool=zipunzip
+
+
+Dependencies
+--------------------------------------------------------------------------------
+
+Delphi RTL & VCL
+----------------
+
+Pretty obviously you need the VCL and RTL that shipped with your version of
+Delphi.
+
+DelphiDabbler components
+------------------------
+
+The following DelphiDabbler open source components are required to build the
+program:
+
+  + Version Information Component - v3.3 or later
+  + About Box Component - v3.5.1 or later
+  + Hot Label Component - v2.1.1 or later
+
+The components must be installed on the Delphi component palette if you are
+using the Delphi IDE. They must also be installed in the path referenced by
+either the DELPHIDABLIB or DELPHIDABLIBDXE macros (see above).
+
+The components are not included in the program source but can be downloaded from
+http://www.delphidabbler.com/software/boobytrap/download
+
+
+Preparations
+--------------------------------------------------------------------------------
+
+Get the source code
+-------------------
+
+Get the latest source code from
+http://www.delphidabbler.com/software/boobytrap/download
+
+This will download a zip file which you should un-zip, preserving the directory
+structure. You should end up with a folder structure like this:
+
+  +--+
+     |
+     +-- Docs           documentation files
+     |
+     +-- Src            source code
+         |
+         +-- Assets     files embedded in program's resources
+         |
+         +-- Help       help project, TOC and index files
+             |
+             +-- CSS    cascading style sheet for HTML help project
+             |
+             +-- HTML   HTML help topic files
+
+If, by chance you also have a Bin, Exe and Release directory don't worry.
+
+Configure the source tree
+-------------------------
+
+Before you can get hacking, you need to prepare the code. Open a command console
+and navigate into the Src sub-folder and do:
+
+  > Make config
+
+You may need to replace "Make" above with the full path to Make if it isn't on
+the path, or if the Make that runs isn't the Borland / CodeGear version.
+
+Once "Make config" has completed your folder structure should have changed to:
+
+  +--+
+     |
+     +-- Bin           receives binary compiled files
+     |
+     +-- Docs
+     |
+     +-- Exe           receives compiled executable files
+     |
+     +-- Release       receives release zip file
+     |
+     +-- Src
+         |
+         +-- Assets
+         |
+         +-- Help
+             |
+             +-- CSS
+             |
+             +-- HTML
+
+If the Bin, Exe and Release folders already existed they will have been emptied.
+
+If you are intending to use the Delphi IDE to compile code, you should also do:
+
+  > Make resources
+
+This compiles the resource files that the IDE needs to link into compiled
+executables.
+
+Modify the source
+-----------------
+
+If you plan to modify the source, you can do it now.
+
+Delphi may emit additional project files. You can safely delete these.
+
+Compile
+-------
+
+Compile the code by doing
+
+  > Make resources
+  > Make pascal
+
+This builds the resources then builds the whole of the Pascal source using the
+DCC32 command line compiler.
+
+Even if you have built the code in the IDE you advised to run these commands.
+
+Create the help file
+--------------------
+
+Compile the help file by doing
+
+  > Make help
+
+This builds the help file from the help source files using the Microsoft HTML
+Help compiler.
+
+Create the setup program
+------------------------
+
+Your can create the setup program by running
+
+  > Make setup
+
+This runs the Inno Setup command line compiler with the Install.iss script.
+
+Prepare the executable release file
+-----------------------------------
+
+If you want to create a zip file containing the executable programs and required
+documentation do:
+
+  > Make release
+
+Note that you must have gone through all the previous steps before running this
+command.
+
+This creates the required zip file containing the installer and a readme file.
+You can change the name of the zip file by defining the RELEASEFILENAME
+environment variable as the required name (excluding extension) or by passing
+the macro of the same name to Make. For example, to generate a release file
+named my-file.zip define RELEASEFILENAME as 'my-file' or
+do:
+
+  > Make -DRELEASEFILENAME=myfile release
+
+If you issue a Make with no target it will re-run config, build the executable
+code, create the setup file and package the release.
+
+Tidy up
+-------
+
+At any time you can tidy up temporary files by doing:
+
+  > Make clean
+
+Be aware that this command deletes the __history files used by Delphi to
+maintain previous file versions. If you don't wan't this you will need to change
+the Makefile.
+
+--------------------------------------------------------------------------------
+$Rev: 41 $
+$Date: 2013-10-28 00:07:58 +0000 (Mon, 28 Oct 2013) $
+--------------------------------------------------------------------------------

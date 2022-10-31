@@ -1,0 +1,37 @@
+Release v1.1.2 of 29 October 2013
++ The program is now Unicode compatible and has been compiled by Delphi XE.
++ Fixed bug where writes to registry failed on Windows 64 bit operating systems.
++ Removed code that worked round Windows task bar and Alt key bugs: now rely on features built into Delphi XE library to handle task bar and Alt key correctly.
++ Minor user interface tweaks:
+  - Font changed to Tahoma.
+  - Minor changes to button sizes.
++ Some re-factoring.
++ Minimum operating system is now Windows 2000.
++ Changed license to MIT license (http://opensource.org/licenses/MIT).
++ Updated documentation.
++ Minor changes to help file.
+
+Release v1.1.1 of 16 September 2008
++ Modified main window to work correctly with Vista task bar and flip 3D task switching.
++ Stripped out unused code from Alt key bug fix and dialogue helper.
++ Replaced MessageDlg calls that have alt key bug with custom message box class that has alt bug fixed.
++ Added input box form to replace library input box that exhibits alt key bug.
+
+Release v1.1 of 15 August 2008
++ Converted to use HTML Help instead of Win32 Help.
++ Enabled Windows themed UI on XP and Vista, providing a work around for Delphi's Alt key bug that manifests itself when themes are enabled.
++ Compiled with Delphi 7.
+
+Release v1.0.2 of 02 December 2003
++ Changed method of saving and loading window state.
++ Modified to use later versions of delphiDabbler components.
++ Changed registry sub key from Software\PJSoft\... to Software\delphiDabbler\...
++ Released under the Mozilla Public License.
+
+Release v1.0.1 of 26 December 2000
++ Modified to enable compilation with Delphi 4.
++ Adopted standard registry naming conventions.
++ Fixed a few formatting problems in help file.
+
+Unreleased v1.0 of 23 October 1999
++ Original version - compiled with Delphi 2.

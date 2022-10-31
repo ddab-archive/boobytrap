@@ -1,0 +1,46 @@
+/*
+ * Various resources used by BoobyTrap!
+ *
+ * $Rev: 21 $
+ * $Date: 2013-10-27 15:49:17 +0000 (Sun, 27 Oct 2013) $
+ *
+ * This file is licensed under the MIT license.
+ *
+ * Copyright (c) 2013, Peter Johnson, http://delphidabbler.com and
+ * http://codedabbler.co.uk
+ */
+
+
+#include "Resource.inc"
+
+/*
+  Game display bitmaps
+*/
+IDB_FLAG      BITMAP "Assets\flag.bmp"
+IDB_QUERY     BITMAP "Assets\query.bmp"
+IDB_CLEAR     BITMAP "Assets\clear.bmp"
+IDB_EMPTY     BITMAP "Assets\empty.bmp"
+101           BITMAP "Assets\1.bmp"
+102           BITMAP "Assets\2.bmp"
+103           BITMAP "Assets\3.bmp"
+104           BITMAP "Assets\4.bmp"
+105           BITMAP "Assets\5.bmp"
+106           BITMAP "Assets\6.bmp"
+107           BITMAP "Assets\7.bmp"
+108           BITMAP "Assets\8.bmp"
+IDB_NOTRAP    BITMAP "Assets\nomine.bmp"
+IDB_EXPTRAP   BITMAP "Assets\expmine.bmp"
+IDB_TRAP      BITMAP "Assets\mine.bmp"
+IDB_FLAGTRAP  BITMAP "Assets\flagmine.bmp"
+
+/*
+  Program's main icon
+*/
+MAINICON      ICON   "Assets\BoobyTrap.ico"
+
+/*
+  Program manifest that specifies XP look and feel for XP and Vista execution
+  level
+*/
+1             24     "Assets\BoobyTrap.manifest"
+

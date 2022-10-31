@@ -1,0 +1,17 @@
+================================================================================
+
+DelphiDabbler BoobyTrap! Source Code Licenses
+
+================================================================================
+
+The original BoobyTrap! source code and images, included in the download
+available from http://www.delphidabbler.com/software/boobytrap/download, are
+licensed under the MIT license. See License.txt for details.
+
+To compile the source code some library code from DelphiDabbler.com is required.
+All the required DelphiDabbler library code is licensed under the Mozilla Public
+License v2.0.
+
+The code is also linked against the Embarcadero Delphi XE RTL and VCL. This code
+is not open source. Therefore you need Delphi XE (or another suitable version of
+Delphi) to compile the source code.

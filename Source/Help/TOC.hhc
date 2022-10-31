@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!--
+ * BoobyTrap! help table of contents file.
+ *
+ * $Rev: 45 $
+ * $Date: 2013-10-28 00:31:26 +0000 (Mon, 28 Oct 2013) $
+ *
+ * This file is licensed under the MIT license.
+ *
+ * Copyright (c) 2013, Peter Johnson, http://delphidabbler.com and
+ * http://codedabbler.co.uk
+-->
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x25">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Overview">
+		<param name="Local" value="HTML\overview.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="User Interface">
+		<param name="Local" value="HTML\interface.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Playing BoobyTrap!">
+		<param name="Local" value="HTML\playing.htm">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Leader Board">
+			<param name="Local" value="HTML\leaderboard.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Customising the Game">
+			<param name="Local" value="HTML\customise.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="License Agreement">
+		<param name="Local" value="HTML\copyright.htm">
+		</OBJECT>
+</UL>
+</BODY></HTML>

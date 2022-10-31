@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!--
+ * Manifest file specifying UI for use in Windows XP and later and execution 
+ * level required for Windows Vista and later.
+ *
+ * $Rev: 19 $
+ * $Date: 2013-10-27 15:32:58 +0000 (Sun, 27 Oct 2013) $
+ *
+ * This file is licensed under the MIT license.
+ *
+ * Copyright (c) 2013, Peter Johnson, http://delphidabbler.com and
+ * http://codedabbler.co.uk
+-->
+
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity
+    type="win32"
+    name="BoobyTrap"
+    version="1.0.0.0"
+    processorArchitecture="*"
+  />
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity
+        type="win32"
+        name="Microsoft.Windows.Common-Controls"
+        version="6.0.0.0"
+        publicKeyToken="6595b64144ccf1df"
+        language="*"
+        processorArchitecture="*"
+      />
+    </dependentAssembly>
+  </dependency>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+    <security>
+      <requestedPrivileges>
+      	<requestedExecutionLevel level="asInvoker" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+</assembly>
